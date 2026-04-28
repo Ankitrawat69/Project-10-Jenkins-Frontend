@@ -1,0 +1,170 @@
+<div class="container-fluid"
+     style="background-image: url('assets/img/list2.jpg');
+     background-size: cover;
+     background-attachment: fixed;
+     min-height: 100vh;
+     padding-top: 75px;
+     padding-bottom: 75px;">
+
+    <div class="row">
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary font-weight-bold"
+                        *ngIf="!form.data.id">
+                        Add ArchivalPolicy
+                    </h3>
+
+                    <h3 class="text-center text-primary font-weight-bold"
+                        *ngIf="form.data.id>0">
+                        Update ArchivalPolicy
+                    </h3>
+
+                    <!-- SUCCESS -->
+                    <div *ngIf="form.error == false && form.message"
+                         class="alert alert-success alert-dismissible text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ form.message }}
+                    </div>
+
+                    <!-- ERROR -->
+                    <div *ngIf="form.error && form.message"
+                         class="alert alert-danger alert-dismissible text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ form.message }}
+                    </div>
+
+                    <!-- ARCHIVAL POLICY ID -->
+                    <label><b>ArchivalPolicy Id *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-id-card"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="webhookId"
+                               [(ngModel)]="form.data.webhookId"
+                               placeholder="Enter ArchivalPolicy Id">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.webhookId}}</span>
+                    </div>
+
+                    <!-- WEBHOOK CODE -->
+                    <label><b>ArchivalPolicy Code *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-code"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="webhookCode"
+                               [(ngModel)]="form.data.webhookCode"
+                               placeholder="Enter ArchivalPolicy Code">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.webhookCode}}</span>
+                    </div>
+
+                    <!-- URL -->
+                    <label><b>URL *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-link"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="url"
+                               [(ngModel)]="form.data.url"
+                               placeholder="Enter URL">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.url}}</span>
+                    </div>
+
+                    <!-- EVENT TYPE -->
+                    <label><b>Event Type *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-calendar"></i>
+                            </span>
+                        </div>
+                        <input type="datetime-local"
+                               class="form-control"
+                               name="eventType"
+                               [(ngModel)]="form.data.eventType">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.eventType}}</span>
+                    </div>
+
+                    <!-- STATUS -->
+                    <label><b>Status *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-toggle-on"></i>
+                            </span>
+                        </div>
+                        <select class="form-control"
+                                name="status"
+                                [(ngModel)]="form.data.status">
+                            <option value="undefined">Select Status</option>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.status}}</span>
+                    </div>
+
+                    <!-- BUTTONS -->
+                    <div class="text-center mt-4">
+
+                        <button *ngIf="!form.data.id"
+                                (click)="submit()"
+                                class="btn btn-success mr-2">
+                            Save
+                        </button>
+
+                        <button *ngIf="form.data.id"
+                                (click)="submit()"
+                                class="btn btn-success mr-2">
+                            Update
+                        </button>
+
+                        <button *ngIf="!form.data.id"
+                                (click)="reset()"
+                                class="btn btn-warning mr-2">
+                            Reset
+                        </button>
+
+                        <button *ngIf="form.data.id"
+                                (click)="forward('/webhooklist')"
+                                class="btn btn-warning">
+                            List
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4"></div>
+    </div>
+
+</div>

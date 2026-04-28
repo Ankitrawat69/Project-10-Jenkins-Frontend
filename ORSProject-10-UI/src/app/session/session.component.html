@@ -1,0 +1,168 @@
+<div class="container-fluid"
+     style="background-image: url('assets/img/list2.jpg');
+     background-size: cover;
+     background-attachment: fixed;
+     min-height: 100vh;
+     padding-top: 75px;
+     padding-bottom: 75px;">
+
+    <div class="row">
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary font-weight-bold"
+                        *ngIf="!form.data.id">
+                        Add Session
+                    </h3>
+
+                    <h3 class="text-center text-primary font-weight-bold"
+                        *ngIf="form.data.id>0">
+                        Update Session
+                    </h3>
+
+                    <!-- SUCCESS -->
+                    <div *ngIf="form.error == false && form.message"
+                         class="alert alert-success alert-dismissible text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ form.message }}
+                    </div>
+
+                    <!-- ERROR -->
+                    <div *ngIf="form.error && form.message"
+                         class="alert alert-danger alert-dismissible text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ form.message }}
+                    </div>
+
+                    <!-- SESSION LOG ID -->
+                    <label><b>Session Log Id *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-id-card"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="sessionLogId"
+                               [(ngModel)]="form.data.sessionLogId"
+                               placeholder="Enter Session Log Id">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.sessionLogId}}</span>
+                    </div>
+
+                    <!-- SESSION LOG CODE -->
+                    <label><b>Session Log Code *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-code"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="sessionLogCode"
+                               [(ngModel)]="form.data.sessionLogCode"
+                               placeholder="Enter Session Log Code">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.sessionLogCode}}</span>
+                    </div>
+
+                    <!-- USER NAME -->
+                    <label><b>User Name *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-user"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="userName"
+                               [(ngModel)]="form.data.userName"
+                               placeholder="Enter User Name">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.userName}}</span>
+                    </div>
+
+                    <!-- LOGIN TIME -->
+                    <label><b>Login Time *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-calendar"></i>
+                            </span>
+                        </div>
+                        <input type="date" class="form-control" [(ngModel)]="form.data.loginTime"
+                                [ngModel]="form.data.loginTime | date:'yyyy-MM-dd'" name="loginTime" [max]="datepicker.max">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.loginTime}}</span>
+                    </div>
+
+                    <!-- STATUS -->
+                    <label><b>Status *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-toggle-on"></i>
+                            </span>
+                        </div>
+                        <select class="form-control"
+                                name="status"
+                                [(ngModel)]="form.data.status">
+                            <option value="undefined">Select Status</option>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.status}}</span>
+                    </div>
+
+                    <!-- BUTTONS -->
+                    <div class="text-center mt-4">
+
+                        <button *ngIf="!form.data.id"
+                                (click)="submit()"
+                                class="btn btn-success mr-2">
+                            Save
+                        </button>
+
+                        <button *ngIf="form.data.id"
+                                (click)="submit()"
+                                class="btn btn-success mr-2">
+                            Update
+                        </button>
+
+                        <button *ngIf="!form.data.id"
+                                (click)="reset()"
+                                class="btn btn-warning mr-2">
+                            Reset
+                        </button>
+
+                        <button *ngIf="form.data.id"
+                                (click)="forward('/sessionlist')"
+                                class="btn btn-warning">
+                            List
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4"></div>
+    </div>
+
+</div>

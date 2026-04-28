@@ -1,0 +1,151 @@
+<div class="container-fluid"
+     style="background-image: url('assets/img/list2.jpg');
+     background-size: cover;
+     background-attachment: fixed;
+     min-height: 100vh;
+     padding-top: 75px;
+     padding-bottom: 75px;">
+
+    <div class="row">
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary font-weight-bold"
+                        *ngIf="!form.data.id">
+                        Add InternetPackage
+                    </h3>
+
+                    <h3 class="text-center text-primary font-weight-bold"
+                        *ngIf="form.data.id>0">
+                        Update InternetPackage
+                    </h3>
+
+                    <!-- SUCCESS -->
+                    <div *ngIf="form.error == false && form.message"
+                         class="alert alert-success alert-dismissible text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ form.message }}
+                    </div>
+
+                    <!-- ERROR -->
+                    <div *ngIf="form.error && form.message"
+                         class="alert alert-danger alert-dismissible text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ form.message }}
+                    </div>
+
+                    <!-- PACKAGE ID -->
+                    <label><b>Package Id *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-id-card"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="packageId"
+                               [(ngModel)]="form.data.packageId"
+                               placeholder="Enter Package Id">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.packageId}}</span>
+                    </div>
+
+                    <!-- PACKAGE NAME -->
+                    <label><b>Package Name *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-code"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="packageName"
+                               [(ngModel)]="form.data.packageName"
+                               placeholder="Enter Package Name">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.packageName}}</span>
+                    </div>
+
+                    <!-- PRICE -->
+                    <label><b>Price *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-money"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="price"
+                               [(ngModel)]="form.data.price"
+                               placeholder="Enter Price">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.price}}</span>
+                    </div>
+
+                    <!-- DATA LIMIT -->
+                    <label><b>Data Limit *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-database"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="dataLimit"
+                               [(ngModel)]="form.data.dataLimit"
+                               placeholder="Enter Data Limit">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.dataLimit}}</span>
+                    </div>
+
+                    <!-- BUTTONS -->
+                    <div class="text-center mt-4">
+
+                        <button *ngIf="!form.data.id"
+                                (click)="submit()"
+                                class="btn btn-success mr-2">
+                            Save
+                        </button>
+
+                        <button *ngIf="form.data.id"
+                                (click)="submit()"
+                                class="btn btn-success mr-2">
+                            Update
+                        </button>
+
+                        <button *ngIf="!form.data.id"
+                                (click)="reset()"
+                                class="btn btn-warning mr-2">
+                            Reset
+                        </button>
+
+                        <button *ngIf="form.data.id"
+                                (click)="forward('/internetlist')"
+                                class="btn btn-warning">
+                            List
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4"></div>
+    </div>
+
+</div>

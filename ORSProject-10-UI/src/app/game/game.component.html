@@ -1,0 +1,151 @@
+<div class="container-fluid"
+     style="background-image: url('assets/img/list2.jpg');
+     background-size: cover;
+     background-attachment: fixed;
+     min-height: 100vh;
+     padding-top: 75px;
+     padding-bottom: 75px;">
+
+    <div class="row">
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary font-weight-bold"
+                        *ngIf="!form.data.id">
+                        Add Player
+                    </h3>
+
+                    <h3 class="text-center text-primary font-weight-bold"
+                        *ngIf="form.data.id>0">
+                        Update Player
+                    </h3>
+
+                    <!-- SUCCESS -->
+                    <div *ngIf="form.error == false && form.message"
+                         class="alert alert-success alert-dismissible text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ form.message }}
+                    </div>
+
+                    <!-- ERROR -->
+                    <div *ngIf="form.error && form.message"
+                         class="alert alert-danger alert-dismissible text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ form.message }}
+                    </div>
+
+                    <!-- PLAYER NAME -->
+                    <label><b>Player Name *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-user"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="playerName"
+                               [(ngModel)]="form.data.playerName"
+                               placeholder="Enter Player Name">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.playerName}}</span>
+                    </div>
+
+                    <!-- SCORE -->
+                    <label><b>Score *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-trophy"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="score"
+                               [(ngModel)]="form.data.score"
+                               placeholder="Enter Score">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.score}}</span>
+                    </div>
+
+                    <!-- LEVEL -->
+                    <label><b>Level *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-signal"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="level"
+                               [(ngModel)]="form.data.level"
+                               placeholder="Enter Level">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.level}}</span>
+                    </div>
+
+                    <!-- GameRANK -->
+                    <label><b>GameRank *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-star"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="rank"
+                               [(ngModel)]="form.data.gameRank"
+                               placeholder="Enter GameRank">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.gameRank}}</span>
+                    </div>
+
+                    <!-- BUTTONS -->
+                    <div class="text-center mt-4">
+
+                        <button *ngIf="!form.data.id"
+                                (click)="submit()"
+                                class="btn btn-success mr-2">
+                            Save
+                        </button>
+
+                        <button *ngIf="form.data.id"
+                                (click)="submit()"
+                                class="btn btn-success mr-2">
+                            Update
+                        </button>
+
+                        <button *ngIf="!form.data.id"
+                                (click)="reset()"
+                                class="btn btn-warning mr-2">
+                            Reset
+                        </button>
+
+                        <button *ngIf="form.data.id"
+                                (click)="forward('/playerlist')"
+                                class="btn btn-warning">
+                            List
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4"></div>
+    </div>
+
+</div>

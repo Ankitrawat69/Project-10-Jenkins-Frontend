@@ -1,0 +1,171 @@
+<div class="container-fluid"
+     style="background-image: url('assets/img/list2.jpg');
+     background-size: cover;
+     background-attachment: fixed;
+     min-height: 100vh;
+     padding-top: 75px;
+     padding-bottom: 75px;">
+
+    <div class="row">
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary font-weight-bold"
+                        *ngIf="!form.data.id">
+                        Add AllowList
+                    </h3>
+
+                    <h3 class="text-center text-primary font-weight-bold"
+                        *ngIf="form.data.id>0">
+                        Update AllowList
+                    </h3>
+
+                    <!-- SUCCESS -->
+                    <div *ngIf="form.error == false && form.message"
+                         class="alert alert-success alert-dismissible text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ form.message }}
+                    </div>
+
+                    <!-- ERROR -->
+                    <div *ngIf="form.error && form.message"
+                         class="alert alert-danger alert-dismissible text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ form.message }}
+                    </div>
+
+                    <!-- ALLOW ID -->
+                    <label><b>Allow Id *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-id-card"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="allowId"
+                               [(ngModel)]="form.data.allowId"
+                               placeholder="Enter Allow Id">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.allowId}}</span>
+                    </div>
+
+                    <!-- ALLOW CODE -->
+                    <label><b>Allow Code *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-code"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="allowCode"
+                               [(ngModel)]="form.data.allowCode"
+                               placeholder="Enter Allow Code">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.allowCode}}</span>
+                    </div>
+
+                    <!-- USER NAME -->
+                    <label><b>User Name *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-user"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="userName"
+                               [(ngModel)]="form.data.userName"
+                               placeholder="Enter User Name">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.userName}}</span>
+                    </div>
+
+                    <!-- SOURCE -->
+                    <label><b>Source *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-database"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="source"
+                               [(ngModel)]="form.data.source"
+                               placeholder="Enter Source">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.source}}</span>
+                    </div>
+
+                    <!-- STATUS -->
+                    <label><b>Status *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-toggle-on"></i>
+                            </span>
+                        </div>
+                        <select class="form-control"
+                                name="status"
+                                [(ngModel)]="form.data.status">
+                            <option value="undefined">Select Status</option>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.status}}</span>
+                    </div>
+
+                    <!-- BUTTONS -->
+                    <div class="text-center mt-4">
+
+                        <button *ngIf="!form.data.id"
+                                (click)="submit()"
+                                class="btn btn-success mr-2">
+                            Save
+                        </button>
+
+                        <button *ngIf="form.data.id"
+                                (click)="submit()"
+                                class="btn btn-success mr-2">
+                            Update
+                        </button>
+
+                        <button *ngIf="!form.data.id"
+                                (click)="reset()"
+                                class="btn btn-warning mr-2">
+                            Reset
+                        </button>
+
+                        <button *ngIf="form.data.id"
+                                (click)="forward('/allowlist')"
+                                class="btn btn-warning">
+                            List
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4"></div>
+    </div>
+
+</div>

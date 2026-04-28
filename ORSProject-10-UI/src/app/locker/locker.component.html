@@ -1,0 +1,151 @@
+<div class="container-fluid"
+     style="background-image: url('assets/img/list2.jpg');
+     background-size: cover;
+     background-attachment: fixed;
+     min-height: 100vh;
+     padding-top: 75px;
+     padding-bottom: 75px;">
+
+    <div class="row">
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary font-weight-bold"
+                        *ngIf="!form.data.id">
+                        Add Locker
+                    </h3>
+
+                    <h3 class="text-center text-primary font-weight-bold"
+                        *ngIf="form.data.id>0">
+                        Update Locker
+                    </h3>
+
+                    <!-- SUCCESS -->
+                    <div *ngIf="form.error == false && form.message"
+                         class="alert alert-success alert-dismissible text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ form.message }}
+                    </div>
+
+                    <!-- ERROR -->
+                    <div *ngIf="form.error && form.message"
+                         class="alert alert-danger alert-dismissible text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ form.message }}
+                    </div>
+
+                    <!-- LOCKER ID -->
+                    <label><b>Locker Id *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-id-card"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="lockerId"
+                               [(ngModel)]="form.data.lockerId"
+                               placeholder="Enter Locker Id">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.lockerId}}</span>
+                    </div>
+
+                    <!-- LOCKER NUMBER -->
+                    <label><b>Locker Number *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-hashtag"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="lockerNumber"
+                               [(ngModel)]="form.data.lockerNumber"
+                               placeholder="Enter Locker Number">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.lockerNumber}}</span>
+                    </div>
+
+                    <!-- LOCKER TYPE -->
+                    <label><b>Locker Type *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="lockerType"
+                               [(ngModel)]="form.data.lockerType"
+                               placeholder="Enter Locker Type">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.lockerType}}</span>
+                    </div>
+
+                    <!-- ANNUAL FEE -->
+                    <label><b>Annual Fee *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-money"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="annualFee"
+                               [(ngModel)]="form.data.annualFee"
+                               placeholder="Enter Annual Fee">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.annualFee}}</span>
+                    </div>
+
+                    <!-- BUTTONS -->
+                    <div class="text-center mt-4">
+
+                        <button *ngIf="!form.data.id"
+                                (click)="submit()"
+                                class="btn btn-success mr-2">
+                            Save
+                        </button>
+
+                        <button *ngIf="form.data.id"
+                                (click)="submit()"
+                                class="btn btn-success mr-2">
+                            Update
+                        </button>
+
+                        <button *ngIf="!form.data.id"
+                                (click)="reset()"
+                                class="btn btn-warning mr-2">
+                            Reset
+                        </button>
+
+                        <button *ngIf="form.data.id"
+                                (click)="forward('/lockerlist')"
+                                class="btn btn-warning">
+                            List
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4"></div>
+    </div>
+
+</div>

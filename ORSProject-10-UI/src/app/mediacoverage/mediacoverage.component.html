@@ -1,0 +1,150 @@
+<div class="container-fluid"
+     style="background-image: url('assets/img/list2.jpg');
+     background-size: cover;
+     background-attachment: fixed;
+     min-height: 100vh;
+     padding-top: 75px;
+     padding-bottom: 75px;">
+
+    <div class="row">
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary font-weight-bold"
+                        *ngIf="!form.data.id">
+                        Add Media Coverage
+                    </h3>
+
+                    <h3 class="text-center text-primary font-weight-bold"
+                        *ngIf="form.data.id>0">
+                        Update Media Coverage
+                    </h3>
+
+                    <!-- SUCCESS -->
+                    <div *ngIf="form.error == false && form.message"
+                         class="alert alert-success alert-dismissible text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ form.message }}
+                    </div>
+
+                    <!-- ERROR -->
+                    <div *ngIf="form.error && form.message"
+                         class="alert alert-danger text-center">
+                        {{ form.message }}
+                    </div>
+
+                    <!-- MEDIA COVERAGE ID -->
+                    <label><b>Media Coverage ID *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-id-card"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="mediaCoverageId"
+                               [(ngModel)]="form.data.mediaCoverageId"
+                               placeholder="Enter Media Coverage ID">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.mediaCoverageId}}</span>
+                    </div>
+
+                    <!-- MEDIA NAME -->
+                    <label><b>Media Name *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-newspaper"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="mediaName"
+                               [(ngModel)]="form.data.mediaName"
+                               placeholder="Enter Media Name">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.mediaName}}</span>
+                    </div>
+
+                    <!-- COVERAGE DATE -->
+                    <label><b>Coverage Date *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-calendar"></i>
+                            </span>
+                        </div>
+                        <input type="date"
+                               class="form-control"
+                               name="coverageDate"
+                               [(ngModel)]="form.data.coverageDate"
+                               [ngModel]="form.data.coverageDate | date:'yyyy-MM-dd'">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.coverageDate}}</span>
+                    </div>
+
+                    <!-- REPORTER -->
+                    <label><b>Reporter *</b></label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-user"></i>
+                            </span>
+                        </div>
+                        <input type="text"
+                               class="form-control"
+                               name="reporter"
+                               [(ngModel)]="form.data.reporter"
+                               placeholder="Enter Reporter Name">
+                    </div>
+                    <div>
+                        <span class="text-danger">{{form.inputerror.reporter}}</span>
+                    </div>
+
+                    <!-- BUTTONS -->
+                    <div class="text-center mt-4">
+
+                        <button *ngIf="!form.data.id"
+                                (click)="submit()"
+                                class="btn btn-success mr-2">
+                            Save
+                        </button>
+
+                        <button *ngIf="form.data.id"
+                                (click)="submit()"
+                                class="btn btn-success mr-2">
+                            Update
+                        </button>
+
+                        <button *ngIf="!form.data.id"
+                                (click)="reset()"
+                                class="btn btn-warning mr-2">
+                            Reset
+                        </button>
+
+                        <button *ngIf="form.data.id"
+                                (click)="forward('/mediacoveragelist')"
+                                class="btn btn-warning">
+                            List
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4"></div>
+    </div>
+
+</div>
