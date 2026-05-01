@@ -83,6 +83,12 @@ import { SubscriptionUsageComponent } from './subscription-usage/subscription-us
 import { SubscriptionUsagelistComponent } from './subscription-usage/subscription-usagelist.component';
 import { RuleengineComponent } from './ruleengine/ruleengine.component';
 import { RuleenginelistComponent } from './ruleengine/ruleenginelist.component';
+import { CacheComponent } from './cache/cache.component';
+import { CachelistComponent } from './cache/cachelist.component';
+import { NotificationchannelComponent } from './notificationchannel/notificationchannel.component';
+import { NotificationchannellistComponent } from './notificationchannel/notificationchannellist.component';
+import { SchedulerjobComponent } from './schedulerjob/schedulerjob.component';
+import { SchedulerjoblistComponent } from './schedulerjob/schedulerjoblist.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -164,6 +170,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     SubscriptionUsagelistComponent,
     RuleengineComponent,
     RuleenginelistComponent,
+    CacheComponent,
+    CachelistComponent,
+    NotificationchannelComponent,
+    NotificationchannellistComponent,
+    SchedulerjobComponent,
+    SchedulerjoblistComponent,
+
   ],
   imports: [
     BrowserModule,

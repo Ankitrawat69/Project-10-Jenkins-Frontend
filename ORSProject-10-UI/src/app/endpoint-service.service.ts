@@ -44,5 +44,8 @@ export class EndpointServiceService {
   public GEOFENCE = this.SERVER_URL+ "/Geofence";
   public SUBSCRIPTIONUSAGE = this.SERVER_URL+ "/SubscriptionUsage";
   public RULEENGINE = this.SERVER_URL+ "/RuleEngine";
+  public CACHE = this.SERVER_URL+ "/Cache";
+  public NOTIFICATION = this.SERVER_URL+ "/Notification";
+  public SCHEDULERJOB = this.SERVER_URL+ "/SchedulerJob";
  
 }

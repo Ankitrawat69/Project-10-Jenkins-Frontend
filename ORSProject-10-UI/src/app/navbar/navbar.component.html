@@ -2,7 +2,6 @@
     .raj {
         background-image: linear-gradient(to bottom right, orange, red);
     }
-
     .c1 {
         color: rgb(235, 6, 6);
     }
@@ -12,66 +11,47 @@
     <nav *ngIf="!isLogin()" class="navbar navbar-expand-lg raj">
         <div class="logo">
             <a class="nav-link" [routerLink]="['/dashboard']">
-                <!-- <strong class="text-white">Rays</strong> -->
                 <img src="assets\img\custom.png" height="40px" width="120px">
             </a>
         </div>
         <select #locale (change)='changeLocale(locale.value)' class="c1">
             <option value="undefined">{{'Select Language' | translate }}</option>
-
             <option value="en" style="color: red;">English</option>
             <option value="hi" style="color: red;">{{'Hindi' | translate }}</option>
             <option value="de" style="color: red;">{{'German' | translate }}</option>
             <option value="fr" style="color: red;">{{'French' | translate }}</option>
         </select>
 
-
         <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-
         <div class="collapse navbar-collapse" id="navbarNav" style="font-size: 15px;">
             <ul class="navbar-nav ml-auto" style="padding-right: 6.5%;">
-
                 <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" [routerLink]="['myNav']"
                         id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         <img src="assets/img/avatar.webp" height="30px" width="30px" class="rounded-circle">
-                        <font style="color: white;">{{'Hi,Guest'| translate}}
-                        </font>
-
+                        <font style="color: white;">{{'Hi,Guest'| translate}}</font>
                     </a>
-
                     <div class="dropdown-menu" id="myNav" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" [routerLink]="['/login']"><i class="fa fa-user"></i> &nbsp; &nbsp;
-                            &nbsp; {{'Log in' | translate}}</a>
-                        <a class="dropdown-item" [routerLink]="['/signup']"><i class=" fa fa-users"></i> &nbsp; {{'User
-                            Registration' |
-                            translate}}</a>
+                        <a class="dropdown-item" [routerLink]="['/login']"><i class="fa fa-user"></i>       {{'Log in' | translate}}</a>
+                        <a class="dropdown-item" [routerLink]="['/signup']"><i class=" fa fa-users"></i>   {{'User Registration' | translate}}</a>
                     </div>
-                </li>
-                <li>
-
                 </li>
             </ul>
         </div>
-
     </nav>
 </div>
 
 
 <nav *ngIf="isLogin()" class="navbar navbar-expand-lg raj">
-
     <div class="logo">
         <a class="nav-link" [routerLink]="['/dashboard']">
-            <!-- <strong class="text-white">Rays</strong> -->
             <img src="assets/img/custom.png" height="40px" width="120px">
         </a>
     </div>
-
-
 
     <select #locale (click)='changeLocale(locale.value)'>
         <option value="0">{{ 'LocaleSelect.Select' | translate }}</option>
@@ -81,450 +61,335 @@
         <option value="fr">{{'French' | translate }}</option>
     </select>
 
-
     <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNav">
-
-
         <div class="col-sm-1"></div>
-        <ul class="nav navbar-nav pl-2 ">
+        <ul class="nav navbar-nav pl-2">
 
-
-            <li class="nav-item dropdown" style="padding-left: 5px;"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px;"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'User' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/user']"><i class="fa fa-user"></i> &nbsp;
-                        &nbsp;{{'AddUser' | translate}}</a>
-                    <a class="dropdown-item" [routerLink]="['/userlist']"><i class="fa fa-list"></i>&nbsp; {{'UserList'
-                        | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/user']"><i class="fa fa-user"></i>    {{'AddUser' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/userlist']"><i class="fa fa-list"></i>  {{'UserList' | translate}}</a>
                 </div>
             </li>
 
-            <li class="nav-item dropdown" style="padding-left: 5px;"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px;"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'Role' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/role']"><i class="fa fa-user"></i> &nbsp;
-                        &nbsp;{{'AddRole' | translate}}</a>
-                    <a class="dropdown-item" [routerLink]="['/rolelist']"><i class="fa fa-list"></i>&nbsp; {{'RoleList'
-                        | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/role']"><i class="fa fa-user"></i>    {{'AddRole' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/rolelist']"><i class="fa fa-list"></i>  {{'RoleList' | translate}}</a>
                 </div>
             </li>
 
-
-            <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'Marksheet' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/marksheet']"><i class="fa fa-file"></i> &nbsp;
-                        {{'AddMarksheet' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/marksheetlist']"><i
-                            class="fa fa-paste"></i> &nbsp;
-                        {{'MarksheetList' | translate}}</a> <a class="dropdown-item"
-                        [routerLink]="['/marksheetmeritlist']"><i class=" fa fa-list"></i> &nbsp; {{'MarksheetMeritList'
-                        | translate}} </a>
-                    <a class="dropdown-item" [routerLink]="['/getmarksheet']"><i class="fa fa-copy"></i> &nbsp; {{'Get
-                        Marksheet' |
-                        translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/marksheet']"><i class="fa fa-file"></i>   {{'AddMarksheet' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/marksheetlist']"><i class="fa fa-paste"></i>   {{'MarksheetList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/marksheetmeritlist']"><i class=" fa fa-list"></i>   {{'MarksheetMeritList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/getmarksheet']"><i class="fa fa-copy"></i>   {{'Get Marksheet' | translate}}</a>
                 </div>
             </li>
 
-            <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'College' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/college']"><i class="fa fa-university"></i> &nbsp;
-                        {{'AddCollege' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/collegelist']"><i
-                            class="fa fa-building"></i> &nbsp;
-                        {{'CollegeList' | translate}} </a>
+                    <a class="dropdown-item" [routerLink]="['/college']"><i class="fa fa-university"></i>   {{'AddCollege' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/collegelist']"><i class="fa fa-building"></i>   {{'CollegeList' | translate}}</a>
                 </div>
             </li>
-            <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                    <font style="color: white;">{{'Course' | translate}}
-                    </font>
+
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <font style="color: white;">{{'Course' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/course']"><i class="fa fa-book"></i> &nbsp; {{'AddCourse'|
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/courselist']"><i
-                            class="fa fa-list"></i> &nbsp; {{'CourseList'
-                        | translate}} </a>
+                    <a class="dropdown-item" [routerLink]="['/course']"><i class="fa fa-book"></i>   {{'AddCourse' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/courselist']"><i class="fa fa-list"></i>   {{'CourseList' | translate}}</a>
                 </div>
             </li>
-            <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'Student' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/student']"><i class="fa fa-user"></i> &nbsp;
-                        {{'AddStudent' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/studentlist']"><i
-                            class="fa fa-users"></i> &nbsp; {{'StudentList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/student']"><i class="fa fa-user"></i>   {{'AddStudent' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/studentlist']"><i class="fa fa-users"></i>   {{'StudentList' | translate}}</a>
                 </div>
             </li>
 
-              <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'Catering' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/catering']"><i class="fa fa-user"></i> &nbsp;
-                        {{'AddCatering' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/cateringlist']"><i
-                            class="fa fa-users"></i> &nbsp; {{'CateringList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/catering']"><i class="fa fa-user"></i>   {{'AddCatering' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/cateringlist']"><i class="fa fa-users"></i>   {{'CateringList' | translate}}</a>
                 </div>
             </li>
 
-             <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                    <font style="color: white;">{{'Subscription' | translate}}
-                    </font>
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <font style="color: white;">{{'Subscription' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/subscription']"><i class="fa fa-users"></i> &nbsp;
-                        {{'AddSubscription' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/subscriptionlist']"><i
-                            class=" fa fa-list"></i> &nbsp; {{'SubscriptionList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/subscription']"><i class="fa fa-users"></i>   {{'AddSubscription' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/subscriptionlist']"><i class=" fa fa-list"></i>   {{'SubscriptionList' | translate}}</a>
                 </div>
             </li>
-             <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'MediaCoverage' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/mediacoverage']"><i class="fa fa-user"></i> &nbsp;
-                        {{'AddMediaCoverage' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/mediacoveragelist']"><i
-                            class="fa fa-users"></i> &nbsp; {{'MediaCoverageList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/mediacoverage']"><i class="fa fa-user"></i>   {{'AddMediaCoverage' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/mediacoveragelist']"><i class="fa fa-users"></i>   {{'MediaCoverageList' | translate}}</a>
                 </div>
             </li>
 
-              <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'Press' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/press']"><i class="fa fa-user"></i> &nbsp;
-                        {{'AddPress' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/presslist']"><i
-                            class="fa fa-users"></i> &nbsp; {{'PressList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/press']"><i class="fa fa-user"></i>   {{'AddPress' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/presslist']"><i class="fa fa-users"></i>   {{'PressList' | translate}}</a>
                 </div>
             </li>
 
-             <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'Report' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/report']"><i class="fa fa-user"></i> &nbsp;
-                        {{'AddReport' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/reportlist']"><i
-                            class="fa fa-users"></i> &nbsp; {{'ReportList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/report']"><i class="fa fa-user"></i>   {{'AddReport' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/reportlist']"><i class="fa fa-users"></i>   {{'ReportList' | translate}}</a>
                 </div>
             </li>
 
-              <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'Sms' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/sms']"><i class="fa fa-user"></i> &nbsp;
-                        {{'AddSms' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/smslist']"><i
-                            class="fa fa-users"></i> &nbsp; {{'SmsList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/sms']"><i class="fa fa-user"></i>   {{'AddSms' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/smslist']"><i class="fa fa-users"></i>   {{'SmsList' | translate}}</a>
                 </div>
             </li>
 
-             <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'Game' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/game']"><i class="fa fa-user"></i> &nbsp;
-                        {{'AddGame' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/gamelist']"><i
-                            class="fa fa-users"></i> &nbsp; {{'GameList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/game']"><i class="fa fa-user"></i>   {{'AddGame' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/gamelist']"><i class="fa fa-users"></i>   {{'GameList' | translate}}</a>
                 </div>
             </li>
 
-             <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'State' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/state']"><i class="fa fa-user"></i> &nbsp;
-                        {{'AddState' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/statelist']"><i
-                            class="fa fa-users"></i> &nbsp; {{'StateList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/state']"><i class="fa fa-user"></i>   {{'AddState' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/statelist']"><i class="fa fa-users"></i>   {{'StateList' | translate}}</a>
                 </div>
             </li>
 
-              <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'Session' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/session']"><i class="fa fa-user"></i> &nbsp;
-                        {{'AddSession' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/sessionlist']"><i
-                            class="fa fa-users"></i> &nbsp; {{'SessionList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/session']"><i class="fa fa-user"></i>   {{'AddSession' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/sessionlist']"><i class="fa fa-users"></i>   {{'SessionList' | translate}}</a>
                 </div>
             </li>
 
-            <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'Portfolio' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/portfolio']"><i class="fa fa-user"></i> &nbsp;
-                        {{'AddPortfolio' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/portfoliolist']"><i
-                            class="fa fa-users"></i> &nbsp; {{'PortfolioList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/portfolio']"><i class="fa fa-user"></i>   {{'AddPortfolio' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/portfoliolist']"><i class="fa fa-users"></i>   {{'PortfolioList' | translate}}</a>
                 </div>
             </li>
 
-             <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'Pipeline' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/pipeline']"><i class="fa fa-user"></i> &nbsp;
-                        {{'AddPipeline' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/pipelinelist']"><i
-                            class="fa fa-users"></i> &nbsp; {{'PipelineList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/pipeline']"><i class="fa fa-user"></i>   {{'AddPipeline' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/pipelinelist']"><i class="fa fa-users"></i>   {{'PipelineList' | translate}}</a>
                 </div>
             </li>
 
-             <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'Secret' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/secret']"><i class="fa fa-user"></i> &nbsp;
-                        {{'AddSecret' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/secretlist']"><i
-                            class="fa fa-users"></i> &nbsp; {{'SecretList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/secret']"><i class="fa fa-user"></i>   {{'AddSecret' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/secretlist']"><i class="fa fa-users"></i>   {{'SecretList' | translate}}</a>
                 </div>
             </li>
-             <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'Description' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/description']"><i class="fa fa-user"></i> &nbsp;
-                        {{'AddDescription' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/descriptionlist']"><i
-                            class="fa fa-users"></i> &nbsp; {{'DescriptionList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/description']"><i class="fa fa-user"></i>   {{'AddDescription' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/descriptionlist']"><i class="fa fa-users"></i>   {{'DescriptionList' | translate}}</a>
                 </div>
             </li>
 
-             <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'ArchivalPolicy' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/webhook']"><i class="fa fa-user"></i> &nbsp;
-                        {{'Add ArchivalPolicy' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/webhooklist']"><i
-                            class="fa fa-users"></i> &nbsp; {{'ArchivalPolicyList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/webhook']"><i class="fa fa-user"></i>   {{'Add ArchivalPolicy' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/webhooklist']"><i class="fa fa-users"></i>   {{'ArchivalPolicyList' | translate}}</a>
                 </div>
             </li>
 
-             <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'Internet' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/internet']"><i class="fa fa-user"></i> &nbsp;
-                        {{'Add Internet Package' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/internetlist']"><i
-                            class="fa fa-users"></i> &nbsp; {{'InternetPackageList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/internet']"><i class="fa fa-user"></i>   {{'Add Internet Package' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/internetlist']"><i class="fa fa-users"></i>   {{'InternetPackageList' | translate}}</a>
                 </div>
             </li>
 
-             <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'Locker' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/locker']"><i class="fa fa-user"></i> &nbsp;
-                        {{'Add Locker' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/lockerlist']"><i
-                            class="fa fa-users"></i> &nbsp; {{'LockerList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/locker']"><i class="fa fa-user"></i>   {{'Add Locker' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/lockerlist']"><i class="fa fa-users"></i>   {{'LockerList' | translate}}</a>
                 </div>
             </li>
 
-              <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'Allow' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/allow']"><i class="fa fa-user"></i> &nbsp;
-                        {{'Add Allow' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/allowlist']"><i
-                            
-                            class="fa fa-users"></i> &nbsp; {{'AllowList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/allow']"><i class="fa fa-user"></i>   {{'Add Allow' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/allowlist']"><i class="fa fa-users"></i>   {{'AllowList' | translate}}</a>
                 </div>
             </li>
 
-             <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'LoginAttempt' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/loginattempt']"><i class="fa fa-user"></i> &nbsp;
-                        {{'Add LoginAttempt' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/loginattemptlist']"><i
-                            
-                            class="fa fa-users"></i> &nbsp; {{'LoginAttemptList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/loginattempt']"><i class="fa fa-user"></i>   {{'Add LoginAttempt' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/loginattemptlist']"><i class="fa fa-users"></i>   {{'LoginAttemptList' | translate}}</a>
                 </div>
             </li>
 
-            <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'GeoFence' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/geofence']"><i class="fa fa-user"></i> &nbsp;
-                        {{'Add GeoFence' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/geofencelist']"><i
-                            
-                            class="fa fa-users"></i> &nbsp; {{'GeoFenceList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/geofence']"><i class="fa fa-user"></i>   {{'Add GeoFence' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/geofencelist']"><i class="fa fa-users"></i>   {{'GeoFenceList' | translate}}</a>
                 </div>
             </li>
 
-             <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'SubscriptionUsage' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/subscription-usage']"><i class="fa fa-user"></i> &nbsp;
-                        {{'Add SubscriptionUsage' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/subscription-usagelist']"><i
-                            
-                            class="fa fa-users"></i> &nbsp; {{'SubscriptionUsageList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/subscription-usage']"><i class="fa fa-user"></i>   {{'Add SubscriptionUsage' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/subscription-usagelist']"><i class="fa fa-users"></i>   {{'SubscriptionUsageList' | translate}}</a>
                 </div>
             </li>
 
-            <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'RuleEngine' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/ruleengine']"><i class="fa fa-user"></i> &nbsp;
-                        {{'Add RuleEngine' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/ruleenginelist']"><i
-                            
-                            class="fa fa-users"></i> &nbsp; {{'RuleEngineList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/ruleengine']"><i class="fa fa-user"></i>   {{'Add RuleEngine' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/ruleenginelist']"><i class="fa fa-users"></i>   {{'RuleEngineList' | translate}}</a>
                 </div>
             </li>
 
-            <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                    <font style="color: white;">{{'Faculty' | translate}}
-                    </font>
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <font style="color: white;">{{'Cache' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/faculty']"><i class="fa fa-users"></i> &nbsp;
-                        {{'AddFaculty' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/facultylist']"><i
-                            class=" fa fa-list"></i> &nbsp; {{'FacultyList' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/cache']"><i class="fa fa-user"></i>   {{'Add Cache' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/cachelist']"><i class="fa fa-users"></i>   {{'CacheList' | translate}}</a>
                 </div>
             </li>
 
-            <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+             <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <font style="color: white;">{{'NotificationChannel' | translate}}</font>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/notificationchannel']"><i class="fa fa-user"></i>   {{'Add NotificationChannel' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/notificationchannellist']"><i class="fa fa-users"></i>   {{'NotificationChannelList' | translate}}</a>
+                </div>
+            </li>
+
+             <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <font style="color: white;">{{'SchedulerJob' | translate}}</font>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/schedulerjob']"><i class="fa fa-user"></i>   {{'Add SchedulerJob' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/schedulerjoblist']"><i class="fa fa-users"></i>   {{'SchedulerJobList' | translate}}</a>
+                </div>
+            </li>
+
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <font style="color: white;">{{'Faculty' | translate}}</font>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/faculty']"><i class="fa fa-users"></i>   {{'AddFaculty' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/facultylist']"><i class=" fa fa-list"></i>   {{'FacultyList' | translate}}</a>
+                </div>
+            </li>
+
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <font style="color: white;">{{'TimeTable' | translate}}</font>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/timetable']"><i class="fa fa-clock"></i> &nbsp;
-                        {{'AddTimeTable'
-                        | translate}}</a> <a class="dropdown-item" [routerLink]="['/timetablelist']"><i
-                            class="fa fa-list"></i> &nbsp;
-                        {{'TimeTableList' | translate}}</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
-                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                    <font style="color: white;">{{'Subject' | translate}}</font>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/subject']"><i class="fa fa-calculator"></i> &nbsp;
-                        {{'AddSubject' |
-                        translate}}</a> <a class="dropdown-item" [routerLink]="['/subjectlist']"> <i
-                            class="fa fa-list"></i> &nbsp; {{'SubjectList' | translate}}
-                    </a>
+                    <a class="dropdown-item" [routerLink]="['/timetable']"><i class="fa fa-clock"></i>   {{'AddTimeTable' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/timetablelist']"><i class="fa fa-list"></i>   {{'TimeTableList' | translate}}</a>
                 </div>
             </li>
 
+            <li *ngIf="isAdmin()" class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <font style="color: white;">{{'Subject' | translate}}</font>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/subject']"><i class="fa fa-calculator"></i>   {{'AddSubject' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/subjectlist']"><i class="fa fa-list"></i>   {{'SubjectList' | translate}}</a>
+                </div>
+            </li>
+
+            <!-- Profile Dropdown (sabko dikhega - isAdmin nahi) -->
             <li class="nav-item dropdown" style="padding-left: 5px">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown">
                     <img *ngIf="isLogin()" [src]="'http://localhost:8080/User/profilePic/' + form.data.userId"
                         class="img-thumbnail" width="30" height="30" class="rounded-circle">
-                    <span *ngIf="isLogin()">
+                    <span *ngIf="isLogin()" style="color: white;">
                         Hi, {{form.data.fname}} ({{form.data.role}})
                     </span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                    <a class="dropdown-item" (click)="forward()"><i class=" fa fa-user-md"></i> &nbsp; {{'My Profile' |
-                        translate}}</a>
-                    <a class="dropdown-item" [routerLink]="['/changepassword']"><i class=" fa fa-key"></i> &nbsp;
-                        {{'Change Password' |
-                        translate}}</a>
-
-
-                    <!-- Javadoc link added -->
+                    <a class="dropdown-item" (click)="forward()"><i class=" fa fa-user-md"></i>   {{'My Profile' | translate}}</a>
+                    <a class="dropdown-item" [routerLink]="['/changepassword']"><i class=" fa fa-key"></i>   {{'Change Password' | translate}}</a>
                     <a class="dropdown-item" href="assets/doc/index.html" target="_blank">
-                        <i class="fa fa-book"></i> &nbsp; Javadoc
+                        <i class="fa fa-book"></i>   Javadoc
                     </a>
-                    <a class="dropdown-item" (click)="logout()"><i class=" fa fa-lock"></i> &nbsp;&nbsp;{{'Log Out' |
-                        translate}}</a>
+                    <a class="dropdown-item" (click)="logout()"><i class=" fa fa-lock"></i>   {{'Log Out' | translate}}</a>
                 </div>
             </li>
+
         </ul>
     </div>
 </nav>
 
-<div>
-
-</div>
+<div></div>

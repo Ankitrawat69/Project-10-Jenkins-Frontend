@@ -23,6 +23,7 @@ export class NavbarComponent {
   }
 
   changeLocale(locale: string) {
+    
     localStorage.setItem("locale", locale);
     this.translate.use(locale);
   }
@@ -51,5 +52,14 @@ export class NavbarComponent {
   forward() {
     this.form.data.userId = localStorage.getItem("userId");
     this.servicelocator.forward("/myprofile/" + this.form.data.userId);
+  }
+
+    isAdmin(): boolean {
+    return localStorage.getItem('role') === 'Admin';
+  }
+
+
+  isStudent(): boolean {
+    return localStorage.getItem('role') === 'Student';
   }
 }

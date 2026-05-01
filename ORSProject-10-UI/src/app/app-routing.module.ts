@@ -70,6 +70,12 @@ import { SubscriptionUsageComponent } from './subscription-usage/subscription-us
 import { SubscriptionUsagelistComponent } from './subscription-usage/subscription-usagelist.component';
 import { RuleengineComponent } from './ruleengine/ruleengine.component';
 import { RuleenginelistComponent } from './ruleengine/ruleenginelist.component';
+import { CacheComponent } from './cache/cache.component';
+import { CachelistComponent } from './cache/cachelist.component';
+import { NotificationchannelComponent } from './notificationchannel/notificationchannel.component';
+import { NotificationchannellistComponent } from './notificationchannel/notificationchannellist.component';
+import { SchedulerjobComponent } from './schedulerjob/schedulerjob.component';
+import { SchedulerjoblistComponent } from './schedulerjob/schedulerjoblist.component';
 
 const routes: Routes = [
   {
@@ -487,6 +493,41 @@ const routes: Routes = [
   {
     path: 'ruleenginelist',
     component: RuleenginelistComponent
+  },
+  {
+    path: 'cache',
+    component: CacheComponent
+  },
+  {
+    path: 'cache/:id',
+    component: CacheComponent
+  },
+  {
+    path: 'cachelist',
+    component: CachelistComponent
+  },
+  {
+    path: 'notificationchannel',
+    component: NotificationchannelComponent
+  },
+  {
+    path: 'notificationchannel/:id',
+    component: NotificationchannelComponent
+  },
+  { path: 'notificationchannellist',
+    component: NotificationchannellistComponent
+  },
+  {
+    path: 'schedulerjob',
+    component: SchedulerjobComponent
+  },
+  {
+    path: 'schedulerjob/:id',
+    component: SchedulerjobComponent
+  },
+  {
+    path: 'schedulerjoblist',
+    component: SchedulerjoblistComponent
   }
 ];
 
