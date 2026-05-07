@@ -89,6 +89,13 @@ import { NotificationchannelComponent } from './notificationchannel/notification
 import { NotificationchannellistComponent } from './notificationchannel/notificationchannellist.component';
 import { SchedulerjobComponent } from './schedulerjob/schedulerjob.component';
 import { SchedulerjoblistComponent } from './schedulerjob/schedulerjoblist.component';
+import { AccountComponent } from './account/account.component';
+import { AccountlistComponent } from './account/accountlist.component';
+import { MeetingComponent } from './meeting/meeting.component';
+import { CustomerComponent } from './customer/customer.component';
+import { MeetingListComponent } from './meeting/meetinglist.component';
+import { CustomerListComponent } from './customer/customerlist.component';
+
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -176,6 +183,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     NotificationchannellistComponent,
     SchedulerjobComponent,
     SchedulerjoblistComponent,
+    AccountComponent,
+    AccountlistComponent,
+    MeetingComponent,
+    MeetingListComponent,
+    CustomerComponent,
+    CustomerListComponent,
 
   ],
   imports: [

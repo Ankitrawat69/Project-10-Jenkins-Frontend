@@ -47,5 +47,8 @@ export class EndpointServiceService {
   public CACHE = this.SERVER_URL+ "/Cache";
   public NOTIFICATION = this.SERVER_URL+ "/Notification";
   public SCHEDULERJOB = this.SERVER_URL+ "/SchedulerJob";
+  public ACCOUNT = this.SERVER_URL+ "/Account";
+  public MEETING = this.SERVER_URL+ "/Meeting";
+  public CUSTOMER = this.SERVER_URL+ "/Customer";
  
 }
