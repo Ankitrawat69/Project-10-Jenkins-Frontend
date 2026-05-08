@@ -546,7 +546,7 @@ const routes: Routes = [
   {
     path: 'accountlist',
     component: AccountlistComponent
-  }
+  },
    {
     path: 'customer',
     component: CustomerComponent
