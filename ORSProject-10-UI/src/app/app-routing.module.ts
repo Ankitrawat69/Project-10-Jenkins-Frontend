@@ -547,7 +547,6 @@ const routes: Routes = [
     path: 'accountlist',
     component: AccountlistComponent
   },
-<<<<<<< HEAD
   {
     path: 'customer',
     component: CustomerComponent
