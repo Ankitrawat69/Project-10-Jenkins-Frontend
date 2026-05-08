@@ -549,9 +549,6 @@ const routes: Routes = [
   },
 <<<<<<< HEAD
   {
-=======
-   {
->>>>>>> a31e9f0dd079118b5421367151b7e7067175dc28
     path: 'customer',
     component: CustomerComponent
   },
