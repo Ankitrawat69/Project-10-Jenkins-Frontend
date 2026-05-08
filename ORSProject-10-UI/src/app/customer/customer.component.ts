@@ -3,10 +3,6 @@ import { ServiceLocatorService } from '../service-locator.service';
 import { ActivatedRoute } from '@angular/router';
 import { BaseCtl } from '../base.component';
 
-/// <summary>
-/// Customer component.
-/// </summary>
-
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
