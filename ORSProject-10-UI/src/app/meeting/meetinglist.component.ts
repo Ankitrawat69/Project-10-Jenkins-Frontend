@@ -5,6 +5,10 @@ import { BaseListCtl } from '../base-list.component';
 import { ServiceLocatorService } from '../service-locator.service';
 import { ActivatedRoute } from '@angular/router';
 
+
+/// <summary>
+/// Meeting List component.
+/// </summary>
 @Component({
   selector: 'app-meeting-list',
   templateUrl: './meetinglist.component.html',
