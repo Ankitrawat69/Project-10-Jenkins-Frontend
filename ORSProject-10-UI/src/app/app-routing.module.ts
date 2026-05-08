@@ -78,6 +78,11 @@ import { SchedulerjobComponent } from './schedulerjob/schedulerjob.component';
 import { SchedulerjoblistComponent } from './schedulerjob/schedulerjoblist.component';
 import { AccountComponent } from './account/account.component';
 import { AccountlistComponent } from './account/accountlist.component';
+import { MeetingComponent } from './meeting/meeting.component';
+import { MeetingListComponent } from './meeting/meetinglist.component';
+import { CustomerComponent } from './customer/customer.component';
+import { CustomerListComponent } from './customer/customerlist.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -541,7 +546,32 @@ const routes: Routes = [
   {
     path: 'accountlist',
     component: AccountlistComponent
+  },
+  {
+    path: 'customer',
+    component: CustomerComponent
+  },
+  {
+    path: 'customer/:id',
+    component: CustomerComponent
+  },
+  {
+    path: 'customerlist',
+    component: CustomerListComponent
+  },
+  {
+    path: 'meeting',
+    component: MeetingComponent
+  },
+  {
+    path: 'meeting/:id',
+    component: MeetingComponent
+  },
+  {
+    path: 'meetinglist',
+    component: MeetingListComponent
   }
+  
 ];
 
 @NgModule({
